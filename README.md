@@ -11,4 +11,4 @@
 - React Native is a framework to build a mobile application using React. Next.JS too, but Next.js is a framework to build web application
 - React Native optimized for native mobile performance. meanwhile Next.js optimized for web application using server-rendering
 - React Native provides a navigation system suitable for mobile apps. Meanwhile Next.JS use file-based route system for website
-5 GraphQL is a query language for your API, and a server-side runtime for executing queries using a type system you define for your data.We can integrate the Graphql to React JS using graphql client library which is Apollo Client to communicate between the Front-End and the GraphQL Server.
+5. GraphQL is a query language for your API, and a server-side runtime for executing queries using a type system you define for your data.We can integrate the Graphql to React JS using graphql client library which is Apollo Client to communicate between the Front-End and the GraphQL Server.
