@@ -114,6 +114,7 @@ import { ApolloServer } from "@apollo/server";
    };
 
  const app = express()
+ const httpServer = http.createServer(app)
 
 
  const server = new ApolloServer({
@@ -130,3 +131,5 @@ import { ApolloServer } from "@apollo/server";
      bodyParser.json(),
      expressMiddleware(server)
  ) 
+ await new Promise((resolve) => httpServer.listen({port: 4000}, resolve))
+  console.log(`🚀 Server ready at http://localhost:4000`);  
