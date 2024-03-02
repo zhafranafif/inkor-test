@@ -113,7 +113,8 @@ import { ApolloServer } from "@apollo/server";
      }
    };
 
-
+ const app = express()
+ const httpServer = http.createServer(app)
 
 
  const server = new ApolloServer({
@@ -121,12 +122,14 @@ import { ApolloServer } from "@apollo/server";
      resolvers,
      plugins: [ApolloServerPluginDrainHttpServer({httpServer})]
  })
-app.use(cors());
-app.use(bodyParser.json());
-app.use(expressMiddleware(server));
+ await server.start()
+ 
 
-server.start().then(() => {
-    app.listen({ port: process.env.PORT || 4000 }, () => {
-      console.log(` Server ready at http://localhost:${process.env.PORT || 4000}`);
-    });
-  });
+
+ app.use(
+     cors(),
+     bodyParser.json(),
+     expressMiddleware(server)
+ )
+ await new Promise((resolve) => httpServer.listen({port: 4000}, resolve))
+ console.log(`🚀 Server ready at http://localhost:4000`); 
